@@ -10,12 +10,11 @@ if [ "$EUID" -ne 0]
 then
   echo "Please use sudo user"
 else
-   echo "Ceating a user called user1"
+   echo "Ceating a user called testuser"
 fi
 
-useradd user1
-
+useradd -m testuser
+passwd testuser
 echo "User created , check /etc/passwd for user list"
 
-su user1
-echo "user is switched to user1"
+su - testuser -c "whoami"
